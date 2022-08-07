@@ -1,0 +1,50 @@
+|                 | insert   | append   |
+|-----------------|----------|----------|
+| tinyArray       | 97.5 μs  | 412.1 μs |
+| smallArray      | 347.8 μs | 348.2 μs |
+| mediumArray     | 476 μs   | 458 μs   |
+| largeArray      | 24.51 ms | 2.5 ms   |
+| extraLargeArray | 4.33 s   | 11.22 ms |
+
+
+-------------------------------------------------------------------------------------------------
+
+The way that both functions scale is that both functions' runtimes increase as the array sizes 
+increase. However, the doublerAppend function using the .push() method scales better than the 
+doublerInsert using the .unshift() method. The table above shows that as the array sizes increase,
+the doublerAppend function takes less time than the doublerInsert function (specifically starting
+at mediumArray). This is because the .unshift() method is slower than the .push() method. The 
+unshift method has to increment all the elements that are already present in the array while
+adding an element to the start of the array while the push method only has to insert an element 
+at the end of the array. The push method has a time complexity of o(1) and has constant time whereas unshift has 
+a time complexity of o(n) and has a linear time. 
+
+--------------------------------------------------------------------------------------------------
+extraLargeArray
+
+insert 4.3267519 s
+append 11.2184 ms
+
+largeArray
+
+insert 24.5128 ms
+append 2.5004 ms
+
+mediumArray
+
+insert 476 μs
+append 458 μs
+
+smallArray
+
+insert 347.8 μs
+append 348.2 μs
+
+tinyArray
+
+insert 97.5 μs
+append 412.1 μs
+
+
+
+
